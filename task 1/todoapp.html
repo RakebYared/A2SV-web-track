@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body style="margin: 30px;">
+
+
+<h1>Todo List</h1>
+<div id="container"></div>
+
+<script>
+    var lists = []
+
+    function render(){
+        container = document.getElementById('container');
+        container.innerHTML = ''
+
+        lists.forEach((value, index) => {
+            const item = document.createElement('div');
+            item.id = index
+            item.style.marginBottom = '20px';
+            item.onclick = () => toggel(index);
+            item.style.cursor = 'pointer';
+            
+
+            item.innerHTML = `
+                <i class= "${value.status? "fas fa-check-circle" :'far fa-circle'}"></i>
+                <span style="margin-right: 50px;">${value.content}</span>
+                <button onclick="editItem(${index})"> edit</button>
+                <button onclick="deleteItem(${index})">delete</button>
+            `
+            container.appendChild(item);
+    
+    });
+
+
+    }
+
+
+    function toggel(index){
+        
+        lists[index].status = !lists[index].status;
+        render();
+        
+    }
+
+    function editItem(index){
+        newItem = prompt('Edit item:', lists[index].content)
+        // newItem.value(`${lists[index]}`)
+        if (newItem) {
+            lists[index].content = newItem
+            render()
+
+        }
+    }
+
+    function deleteItem(index){
+            lists.splice(index, 1)
+            render()
+    }   
+    
+    function addElement(){
+        input = document.getElementById('input') 
+        value = input.value
+
+        if (value != ''){
+            lists.push({status:false, content:value})
+            input.value = ''
+            render()
+        }
+    }
+</script>
+
+<input type="text" id ='input'>
+<button onclick="addElement()">add</button>
+
+
+
+    
+</body>
+</html>
