@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-// Create axios instance with base configuration
 const api = axios.create({
   baseURL: 'https://akil-backend.onrender.com',
   headers: {
@@ -8,7 +7,6 @@ const api = axios.create({
   },
 });
 
-// Request interceptor to add auth token
 api.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem('accessToken');
@@ -22,14 +20,12 @@ api.interceptors.request.use(
   }
 );
 
-// Response interceptor to handle auth errors
 api.interceptors.response.use(
   (response) => {
     return response;
   },
   (error) => {
     if (error.response?.status === 401) {
-      // Token expired or invalid
       localStorage.removeItem('accessToken');
       localStorage.removeItem('user');
       window.location.href = '/signin';
@@ -38,14 +34,12 @@ api.interceptors.response.use(
   }
 );
 
-// Auth API functions
 export const authAPI = {
   signup: (userData) => api.post('/signup', userData),
   login: (credentials) => api.post('/login', credentials),
   verifyEmail: (emailData) => api.post('/verify-email', emailData),
 };
 
-// Token management utilities
 export const tokenUtils = {
   getToken: () => localStorage.getItem('accessToken'),
   setToken: (token) => localStorage.setItem('accessToken', token),
@@ -53,7 +47,6 @@ export const tokenUtils = {
   isAuthenticated: () => !!localStorage.getItem('accessToken'),
 };
 
-// User management utilities
 export const userUtils = {
   getUser: () => {
     const user = localStorage.getItem('user');

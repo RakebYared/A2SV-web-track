@@ -1,7 +1,5 @@
-!!! I used react because my pc kept crashing out when using nextjs. i tried everything but nothing was working!!!
-
-
-A simple React authentication app with signup, signin, and email verification.
+!!! I used react because my pc kept crashing out when using 
+nextjs. i tried everything but nothing was working!!!
 
 ## What it does
 

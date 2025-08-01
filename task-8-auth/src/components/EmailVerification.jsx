@@ -11,7 +11,6 @@ const EmailVerification = () => {
     OTP: ''
   });
 
-  // Pre-fill email if passed from signup
   useEffect(() => {
     if (location.state?.email) {
       setFormData(prev => ({
@@ -49,7 +48,6 @@ const EmailVerification = () => {
       ...prev,
       [name]: value
     }));
-    // Clear error when user starts typing
     if (errors[name]) {
       setErrors(prev => ({
         ...prev,

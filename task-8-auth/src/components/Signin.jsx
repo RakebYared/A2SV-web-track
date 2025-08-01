@@ -36,7 +36,6 @@ const Signin = () => {
       ...prev,
       [name]: value
     }));
-    // Clear error when user starts typing
     if (errors[name]) {
       setErrors(prev => ({
         ...prev,
@@ -61,7 +60,6 @@ const Signin = () => {
         password: formData.password
       });
 
-      // Store the access token securely
       const { accessToken, user } = response.data;
       tokenUtils.setToken(accessToken);
       userUtils.setUser(user);
