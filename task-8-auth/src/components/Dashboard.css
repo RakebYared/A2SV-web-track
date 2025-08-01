@@ -1,0 +1,125 @@
+.dashboard-container {
+  min-height: 100vh;
+  background: #f8fafc;
+}
+
+.dashboard-header {
+  background: white;
+  padding: 30px 60px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dashboard-header h1 {
+  margin: 0;
+  color: #333;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.logout-button {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+  background: #c0392b;
+}
+
+.dashboard-main {
+  padding: 60px;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 40px;
+}
+
+.dashboard-card {
+  background: white;
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.dashboard-card h2 {
+  margin: 0 0 30px 0;
+  color: #333;
+  font-size: 24px;
+  font-weight: 700;
+  border-bottom: 3px solid #667eea;
+  padding-bottom: 15px;
+}
+
+.user-info p {
+  margin: 15px 0;
+  color: #555;
+  font-size: 18px;
+}
+
+.user-info strong {
+  color: #333;
+  font-weight: 700;
+}
+
+.status-success {
+  color: #27ae60;
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.dashboard-card ul {
+  margin: 0;
+  padding-left: 25px;
+}
+
+.dashboard-card li {
+  margin: 15px 0;
+  color: #555;
+  font-size: 18px;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-size: 24px;
+  color: #666;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .dashboard-header {
+    padding: 25px 40px;
+  }
+  
+  .dashboard-header h1 {
+    font-size: 28px;
+  }
+  
+  .dashboard-main {
+    padding: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
+  
+  .dashboard-card {
+    padding: 30px;
+  }
+} 
